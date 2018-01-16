@@ -1,0 +1,25 @@
+<div class="form-style-10">
+  <h1>Delete Relation<span>Delete a relation by defining following parameters.</span></h1>
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div class="section"><span>1</span>Statement Details</div>
+    <div class="inner-wrap">
+      <label>Relation<input type="text" formControlName="sub" /></label>
+    </div>
+
+    <div class="section"><span>2</span>Namespace Details</div>
+    <div class="inner-wrap">
+      <label>Relation Namespace
+        <select formControlName="subNs">
+          <option value="ex" selected>Loacal</option>
+          <option value="RDF">RDF</option>
+          <option value="RDFS">RDFS</option>
+          <option value="foaf">FOAF</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="button-section">
+      <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid" />
+    </div>
+  </form>
+</div>

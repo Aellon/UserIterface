@@ -1,0 +1,45 @@
+<div id="graphArea" class="container">
+  <!--<span>{{results}}</span>-->
+  <app-diagram-editor [model]="model">
+  </app-diagram-editor>
+</div>
+<!--
+<div id = "getAllButton" >
+  <button class="btn btn-outline-primary" (click)="getStatements()">Full Graph</button>
+</div>
+
+<div id = "getNeighbours" class="input-group">
+    <input [(ngModel)]="sub" placeholder="Enter Subject" id = "sbIn">
+  <select [(ngModel)]="pred" placeholder="Enter Predicate" id = "predIn">
+    <option value="Typeof" selected>Type Of</option>
+    <option value="Memberof">Member of</option>
+    <option value="Has">Has</option>
+    <option value="all">All</option>
+  </select>
+  <button class="btn btn-outline-warning" (click)="getNeighbours()" id = "getNei">Neighbours</button>
+  <button class="btn btn-outline-warning" (click)="resolveRoot()" id = "getRoot">Resolve Root</button>
+  <button class="btn btn-outline-success" (click)="getParents()" id = "parentBtn">Print Parents</button>
+</div>
+
+-->
+
+<div class="form-style-10">
+  <h1>Options</h1>
+  <button class="btn btn-info" (click)="getStatements()" id = "getAllButton">View Full Graph</button>
+  <button class="btn btn-info" (click)="getParents()" id = "parentBtn">Print Parents</button>
+    <div class="section"><span>1</span>Lookup details</div>
+    <div class="inner-wrap">
+      <label>Concept <input type="text" [(ngModel)]="sub" placeholder="Enter Consept" /></label>
+      <label>predicate
+        <select [(ngModel)]="pred" placeholder="Enter Predicate">
+          <option value="Typeof" selected>Type Of</option>
+          <option value="Memberof">Member of</option>
+          <option value="Has">Has</option>
+          <option value="all">All</option>
+        </select>
+      </label>
+    </div>
+  <button class="btn btn-info" (click)="getNeighbours()" id = "getNei">Neighbours</button>
+  <button class="btn btn-info" (click)="resolveRoot()" id = "getRoot">Find Root</button>
+
+</div>

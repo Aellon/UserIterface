@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<div style="text-align:center">
+
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="http://rozie.ai">
+      <img src="../assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Rozie
+    </a>
+    <a class="nav-link" routerLink="/graph">Show Graph  |</a>
+    <a class="nav-link" routerLink="/addnode">Add Concept  |</a>
+    <a class="nav-link" routerLink="/deletenode">Delete Concept  |</a>
+    <a class="nav-link" routerLink="/addrelation">Add Relation  |</a>
+    <a class="nav-link" routerLink="/deleterelation">Delete Relation  |</a>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <!--<nav class="navbar fixed-bottom navbar-light bg-faded">
+    <a class="navbar-brand" href="#">Rozie.Ai Concept Graph</a>
+  </nav>-->
+
+</div>
+</body>
+</html>
