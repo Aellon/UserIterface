@@ -17,22 +17,26 @@ export class DeleteRelationComponent implements OnInit {
   sub = '';
   domain = '';
   range = '';
-  subNs = '';
+  subNs = 'ex';
   domNs = '';
   rnNs = '';
   jsnObjc = {};
+  objects: any;
+  predicates: any;
 
   constructor(private fb: FormBuilder, private greader: GraphReaderService) {
 
     this.rForm = fb.group({
       'sub': [null, Validators.required],
-      'subNs': [null, Validators.required]
+      //'subNs': [null, Validators.required]
     });
+    this.objects = greader.getSubjects();
+    this.predicates = greader.getPredicates();
   }
 
   addPost(post) {
     this.sub = post.sub;
-    this.subNs = post.subNs;
+  //  this.subNs = post.subNs;
 
     this.jsnObjc['option'] = this.opt;
     this.jsnObjc['subject'] = this.sub;

@@ -17,30 +17,31 @@ export class AddRelationComponent implements OnInit {
   sub = '';
   domain = '';
   range = '';
-  subNs = '';
-  domNs = '';
-  rnNs = '';
+  subNs = 'ex';
+  domNs = 'ex';
+  rnNs = 'ex';
   jsnObjc = {};
+  subjects: any;
+  objects: any;
+  predicates: any;
 
   constructor(private fb: FormBuilder, private greader: GraphReaderService) {
 
     this.rForm = fb.group({
       'sub': [null, Validators.required],
       'domain': [null, Validators.required],
-      'range': [null, Validators.required],
-      'subNs': [null, Validators.required],
-      'domNs': [null, Validators.required],
-      'rnNs': [null, Validators.required]
+      'range': [null, Validators.required]
     });
+
+    this.subjects = greader.getSubjects();
+    this.predicates = greader.getPredicates();
+    this.objects = greader.getPredicates();
   }
 
   addPost(post) {
     this.sub = post.sub;
     this.domain = post.domain;
     this.range = post.range;
-    this.subNs = post.subNs;
-    this.domNs = post.domNs;
-    this.rnNs = post.rnNs;
 
     this.jsnObjc['option'] = 'add';
     this.jsnObjc['subject'] = this.sub;

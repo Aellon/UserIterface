@@ -3,17 +3,9 @@
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
     <div class="section"><span>1</span>Statement Details</div>
     <div class="inner-wrap">
-      <label>Relation<input type="text" formControlName="sub" /></label>
-    </div>
-
-    <div class="section"><span>2</span>Namespace Details</div>
-    <div class="inner-wrap">
-      <label>Relation Namespace
-        <select formControlName="subNs">
-          <option value="ex" selected>Loacal</option>
-          <option value="RDF">RDF</option>
-          <option value="RDFS">RDFS</option>
-          <option value="foaf">FOAF</option>
+      <label>Relation to delete
+        <select formControlName="sub" placeholder="Enter Object">
+          <option  *ngFor="let sb of predicates" value="{{sb}}">{{sb}}</option>
         </select>
       </label>
     </div>

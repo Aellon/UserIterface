@@ -17,23 +17,26 @@ export class DeleteNodeComponent implements OnInit {
   sub = '';
   pred = '';
   objt = '';
-  subNs = '';
+  subNs = 'ex';
   predNs = '';
   objNs = '';
   jsnObjc = {};
 
+  objects: any;
+  predicates: any;
   constructor(private fb: FormBuilder, private greader: GraphReaderService) {
 
     this.rForm = fb.group({
       'sub': [null, Validators.required],
-      'subNs': [null, Validators.required]
     });
+
+    this.objects = greader.getSubjects();
+    this.predicates = greader.getPredicates();
 
   }
 
   addPost(post) {
     this.sub = post.sub;
-    this.subNs = post.subNs;
 
     this.jsnObjc['option'] = this.opt;
     this.jsnObjc['subject'] = this.sub;

@@ -18,10 +18,13 @@ export class AddNodeComponent implements OnInit {
   sub = 'sdsdssdsdsdsdsdsds';
   pred = '';
   obj = '';
-  subNs = '';
+  subNs = 'ex';
   predNs = '';
-  objNs = '';
+  objNs = 'ex';
   jsnObjc = {};
+
+  objects: any;
+  predicates: any;
 
   constructor(private fb: FormBuilder, private greader: GraphReaderService) {
 
@@ -29,19 +32,18 @@ export class AddNodeComponent implements OnInit {
         'sub': [null, Validators.required],
         'pred': [null, Validators.required],
         'obj': [null, Validators.required],
-        'subNs': [null, Validators.required],
         'predNs': [null, Validators.required],
-        'objNs': [null, Validators.required]
       });
+
+    this.objects = greader.getSubjects();
+    this.predicates = greader.getPredicates();
   }
 
   addPost(post) {
       this.sub = post.sub;
       this.pred = post.pred;
       this.obj = post.obj;
-      this.subNs = post.subNs;
       this.predNs = post.predNs;
-      this.objNs = post.objNs;
 
       this.jsnObjc['option'] = 'add';
       this.jsnObjc['subject'] = this.sub;

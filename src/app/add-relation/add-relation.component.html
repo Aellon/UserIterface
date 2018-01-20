@@ -4,41 +4,18 @@
     <div class="section"><span>1</span>Statement Details</div>
     <div class="inner-wrap">
       <label>Relation<input type="text" formControlName="sub" /></label>
-      <label>Domain<input type="text" formControlName="domain" /></label>
-      <label>Range<input type="text" formControlName="range" /></label>
-    </div>
-
-    <div class="section"><span>2</span>Namespace Details</div>
-    <div class="inner-wrap">
-      <!--<label>Concept Namespace <input type="text" formControlName="subNs" /></label>-->
-      <label>Relation Namespace
-        <select formControlName="subNs">
-          <option value="ex" selected>Loacal</option>
-          <option value="RDF">RDF</option>
-          <option value="RDFS">RDFS</option>
-          <option value="foaf">FOAF</option>
-        </select>
-      </label>
-      <label>Domain Namespace
-        <select formControlName="domNs">
-          <option value="ex" selected>Loacal</option>
-          <option value="RDF">RDF</option>
-          <option value="RDFS">RDFS</option>
-          <option value="foaf">FOAF</option>
-        </select>
-      </label>
-      <label>Range Namespace
-        <select formControlName="rnNs">
-          <option value="ex" selected>Loacal</option>
-          <option value="RDF">RDF</option>
-          <option value="RDFS">RDFS</option>
-          <option value="foaf">FOAF</option>
-        </select>
-      </label>
+      <label>Domain
+        <select formControlName="domain">
+          <option *ngFor="let object of subjects" value="{{object}}">{{object}}</option>
+        </select></label>
+      <label>Range
+      <select formControlName="range">
+        <option *ngFor="let object of subjects" value="{{object}}">{{object}}</option>
+      </select></label>
     </div>
 
     <div class="button-section">
-      <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid" />
+      <input type="submit" class="button expanded" value="Add Relation" [disabled]="!rForm.valid" />
     </div>
   </form>
 </div>

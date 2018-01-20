@@ -1,69 +1,25 @@
-<!--<div>
-  {{sub}}
-</div>
-
-<div>
-  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-    <div class="form-container">
-      <div class="row columns">
-        <h1>Add Concept</h1>
-        <label>Concept
-          <input type="text" formControlName="sub">
-        </label>
-        <label>Predicate
-          <input type="text" formControlName="pred">
-        </label>
-
-        <label>Objetc
-          <input type="text" formControlName="obj">
-        </label>
-        <label>Subject Namespace
-          <input type="text" formControlName="subNs">
-        </label>
-        <label>Predicate Namespace
-          <input type="text" formControlName="predNs">
-        </label>
-        <label>object Namespace
-          <input type="text" formControlName="objNs">
-        </label>
-
-        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
-      </div>
-    </div>
-  </form>
-</div>
--->
 <div class="form-style-10">
-  <h1>Add new Concept<span>Add new concept by defining following parameters.</span></h1>
+  <h1>Add Statement<span>Add new statement by defining following parameters.</span></h1>
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
     <div class="section"><span>1</span>Statement Details</div>
     <div class="inner-wrap">
-      <label>New concept <input type="text" formControlName="sub" /></label>
-      <label>Predicate <input type="text" formControlName="pred" /></label>
-      <label>Object <input type="text" formControlName="obj" /></label>
+      <label>Subject <input type="text" formControlName="sub" /></label>
+      <label>Predicate
+        <select formControlName="pred" placeholder="Enter Predicate">
+          <option  *ngFor="let sb of predicates" value="{{sb}}">{{sb}}</option>
+        </select>
+      </label>
+      <label>Predicate
+        <select formControlName="obj" placeholder="Enter Object">
+          <option  *ngFor="let sb of objects" value="{{sb}}">{{sb}}</option>
+        </select>
+      </label>
     </div>
 
     <div class="section"><span>2</span>Namespace Details</div>
     <div class="inner-wrap">
-      <!--<label>Concept Namespace <input type="text" formControlName="subNs" /></label>-->
-      <label>Concept Namespace
-      <select formControlName="subNs">
-        <option value="ex" selected>Loacal</option>
-        <option value="RDF">RDF</option>
-        <option value="RDFS">RDFS</option>
-        <option value="foaf">FOAF</option>
-      </select>
-      </label>
       <label>predicate Namespace
         <select formControlName="predNs">
-          <option value="ex" selected>Loacal</option>
-          <option value="RDF">RDF</option>
-          <option value="RDFS">RDFS</option>
-          <option value="foaf">FOAF</option>
-        </select>
-      </label>
-      <label>Object Namespace
-        <select formControlName="objNs">
           <option value="ex" selected>Loacal</option>
           <option value="RDF">RDF</option>
           <option value="RDFS">RDFS</option>
@@ -73,7 +29,7 @@
     </div>
 
     <div class="button-section">
-      <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid" />
+      <input type="submit" class="button expanded" value="Add Statement" [disabled]="!rForm.valid" />
     </div>
   </form>
 </div>
